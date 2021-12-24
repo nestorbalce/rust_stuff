@@ -1,0 +1,66 @@
+// Topic: Organizing similar data using structs
+//
+// Requirements:
+// * Print the flavor of a drink and it's fluid ounces
+//
+// Notes:
+// * Use an enum to create different flavors of drinks
+// * Use a struct to store drink flavor and fluid ounce information
+// * Use a function to print out the drink flavor and ounces
+// * Use a match expression to print the drink flavor
+
+
+// * Use an enum to create different flavors of drinks
+
+enum Flavor {
+    Sparkling,
+    Sweet,
+    Fruity,
+}
+
+// * Use a struct to store drink flavor and fluid ounce information
+// * Structure is named Drink, the field is named 'flavor' and is an enum type also named "Flavor"
+// Field 'fluid_oz' is a f63 since we will be dealing with decimals.
+
+struct Drink {
+    flavor: Flavor,
+    fluid_oz: f64,
+    // f64 uses 2 decimal points
+}
+// * Use a function to print out the drink flavor and ounces
+// the funcion has an argument 'drink' and it the type is a 'Drink' which is defined as a structure
+
+fn print_drink (drink: Drink){
+    // * Use a match expression to print the drink flavor
+    match drink.flavor {
+        // here we account for each flavor, and print the appropriate message. 
+        Flavor::Sparkling=> println!("flavor: Sparkling"),
+        Flavor::Sweet=> println!("flavor: Sweet"),
+        Flavor::Fruity=> println!("flavor: Fruity"),
+    }
+    // remember that the struct 'Drink' has 2 fields. Access the 2nd field fluid oz this point.
+    println!("oz: {:?}", drink.fluid_oz);
+
+}
+
+fn main(){
+    // here we are creating a drink, and assigning it to the variable 'sweet'. 'Drink' is a structure. 
+    let sweet = Drink {
+        flavor: Flavor::Sweet,
+        fluid_oz: 6.0
+    };
+    print_drink(sweet);
+
+    let sparkling = Drink {
+        flavor: Flavor::Sparkling,
+        fluid_oz: 8.0
+    };
+    print_drink(sparkling);
+
+    let fruity = Drink {
+        flavor: Flavor::Fruity,
+        fluid_oz: 3.0
+    };
+    print_drink(fruity);
+}
+
