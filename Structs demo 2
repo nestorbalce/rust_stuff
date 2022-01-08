@@ -1,0 +1,17 @@
+//define the struct fields
+struct GroceryItem {
+    stock: i32,
+    price: f64,
+}
+
+// define the value and it's fields
+fn main () {
+//define the value, and use the struct to create field data
+    let cereal = GroceryItem {
+    stock: 5,
+    price: 2.99,
+    };
+    // print the fields, using the value and access only specific data
+    println!("stock: {:?}", cereal.stock);
+    println!("price: {:?}", cereal.price);
+} 
